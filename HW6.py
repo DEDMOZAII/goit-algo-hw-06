@@ -37,8 +37,9 @@ class Record:
     def edit_phone(self, old_phone, new_phone):
         phone_to_edit = self.find_phone(old_phone)
         if phone_to_edit:
-            self.phones.remove(phone_to_edit)
+            temp_phone = Phone(new_phone)
             self.add_phone(new_phone)
+            self.phones.remove(phone_to_edit)
         else:
             raise ValueError(f"номер {old_phone} не знайдено")
         
